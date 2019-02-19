@@ -14,7 +14,9 @@
               all of your customers, meetings, notes, and plans.</p>
             </div>
             <div class="row">
-              {# first signup link #}
+              <a href="{% url 'sub_new' %}"
+                class="sign-up btn btn-success">Sign Up Now for $15/month!
+              </a>
               <a href=""
                 class="sign-up btn btn-success">Sign up now for $15/month!
                 </a>
@@ -27,7 +29,7 @@
       <h2 class="mkt-s2-h">Why Buy CRM Easy?</h2>
       <div class="mkt-s2-body">
         <div class="col-md-4 mkt-vp">
-            <img class="" src="{{ STATIC_URL }}images/clock.png"/>
+           <!--  <img class="" src="/images/clock.png"/> -->
             <h5>Save Time</h5>
             <p>By tracking your customers in
             an easy to use application you'll
@@ -37,7 +39,7 @@
             just open CRM Easy!</p>
         </div>
         <div class="col-md-4 mkt-vp">
-            <img class="" src="{{ STATIC_URL }}images/lightbulb.png"/>
+            <!-- <img class="" src="{{ STATIC_URL }}images/lightbulb.png"/> -->
             <h5>Stay Current</h5>
             <p>Keeping track of customer details
             is a critical part of serving the customer
@@ -46,7 +48,7 @@
             communications.</p>
         </div>
         <div class="col-md-4 mkt-vp">
-            <img class="" src="{{ STATIC_URL }}images/dollar.png"/>
+           <!--  <img class="" src="{{ STATIC_URL }}images/dollar.png"/> -->
             <h5>Win Business</h5>
             <p>By tracking customers and staying up
             to date on their requirements you'll be
@@ -55,7 +57,7 @@
         </div>
     </div>
     {# Second Signup Link #}
-    <a href="" class=" sgn-btm ">SIGN UP FOR ONLY $15/MONTH</a>
+   <a href="{% url 'sub_new' %}" class=" sgn-btm ">SIGN UP FOR ONLY $15/MONTH</a>
 </div>
 
 {% endblock content %}

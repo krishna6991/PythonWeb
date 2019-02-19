@@ -32,13 +32,18 @@ SECRET_KEY = get_env_variable('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 TEMPLATE_DEBUG = DEBUG
 
 if ENV_ROLE == 'development':
     DEBUG = True
     TEMPLATE_DEBUG = DEBUG
+
+if ENV_ROLE == 'production':
+    import dj_database_url
+    DATABASES['default'] = dj_database_url.config()
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -49,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'marketing',
+    'subscribers',
 ]
 
 MIDDLEWARE = [
