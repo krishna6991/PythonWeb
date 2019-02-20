@@ -2,8 +2,8 @@ from django.db import models
 
 from django.contrib.auth.models import User
 
-class subscriber(models.Model):
-	user_rec = models.ForeignKey(User)
+class Subscriber(models.Model):
+	user_rec = models.ForeignKey(User, on_delete=models.CASCADE)
 	address_one = models.CharField(max_length=100)
 	address_two = models.CharField(max_length=100, blank=True)
 	city = models.CharField(max_length=50)
