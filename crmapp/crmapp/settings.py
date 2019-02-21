@@ -72,7 +72,8 @@ ROOT_URLCONF = 'crmapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "templates")],        'APP_DIRS': True,
+        'DIRS':[os.path.join(BASE_DIR, "templates")],
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -144,7 +145,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+STRIPE_SECRET_KEY = get_env_variable('STRIPE_SECRET_KEY')
+STRIPE_PUBLISHABLE_KEY = get_env_variable('STRIPE_PUBLISHABLE_KEY')
 
+
+SUBSCRIPTION_PRICE = 1500
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
