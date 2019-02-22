@@ -18,10 +18,13 @@ from django.urls import path
 from marketing.views import HomePage
 from subscribers.views import subscriber_new
 from django.contrib.auth.views import LoginView, LogoutView
+from accounts.views import AccountList
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomePage.as_view(), name="home"),
     path('signup/',subscriber_new, name='sub_new'),
+    path('account/list', AccountList.as_view(), name='account_list'),
     path('login/', LoginView.as_view(template_name="login.html"), name="user_login"),
     path('logout/', LogoutView.as_view(), name='home'),
 ]
