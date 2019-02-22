@@ -29,3 +29,15 @@ class AccountList(ListView):
 	def dispatch(self, *args, **kwargs):
 		return super(AccountList, self).dispatch(*args, **kwargs)
 
+@login_required()
+def account_detail(request, uuid):
+
+    account = Account.objects.get(uuid=uuid)
+    if account.owner != request.user:
+            return HttpResponseForbidden()
+
+    variables = {
+        'account': account,
+    }
+
+    return render(request, 'accounts/account_detail.html', variables)
