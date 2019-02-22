@@ -1,11 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 from shortuuidfield import ShortUUIDField
+from django.urls import reverse
 
 class Account(models.Model):
 	uuid = ShortUUIDField(unique=True)
 	name= models.CharField(max_length=80)
-	desc = models.TextField(balnk=True)
+	desc = models.TextField(blank=True)
 	address_one = models.CharField(max_length=100)
 	address_two = models.CharField(max_length=100, blank=True)
 	city = models.CharField(max_length=50)
@@ -20,14 +21,12 @@ class Account(models.Model):
 	def __unicode__(self):
 		return u"%s" %self.name
 
-	@models.permalink
-	def get_absolute_url(self):
-		return 'account_detail', [self.uuid]
-		
-	@models.permalink
-	def get_update_url(self):
-		return 'account_update', [self.uuid]
 
-	@models.permalink
+	def get_absolute_url(self):
+		return reverse('account_detail', [self.uuid])
+
+	def get_update_url(self):
+		return reverse('account_update', [self.uuid])
+
 	def get_delete_url(self):
-		return 'account_delete', [self.uuid]
+		return reverse('account_delete', [self.uuid])
