@@ -19,12 +19,15 @@ from marketing.views import HomePage
 from subscribers.views import subscriber_new
 from django.contrib.auth.views import LoginView, LogoutView
 from accounts.views import AccountList
+from accounts.views import account_cru
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomePage.as_view(), name="home"),
     path('signup/',subscriber_new, name='sub_new'),
-    path('account/list', AccountList.as_view(), name='account_list'),
+    path('account/list/', AccountList.as_view(), name='account_list'),
     path('login/', LoginView.as_view(template_name="login.html"), name="user_login"),
     path('logout/', LogoutView.as_view(), name='home'),
+    path('account/<int:uuid>/', include('accounts.urls')),
+    path('account/new/', account_cru, name='account_new'),
 ]

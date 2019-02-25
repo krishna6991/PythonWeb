@@ -23,10 +23,10 @@ class Account(models.Model):
 
 
 	def get_absolute_url(self):
-		return reverse('account_detail', [self.uuid])
+		return reverse('account_detail', args=(self.uuid,))
 
 	def get_update_url(self):
-		return reverse('account_update', [self.uuid])
+		return reverse('account_update',args=(self.uuid,))
 
 	def get_delete_url(self):
-		return reverse('account_delete', [self.uuid])
+		return reverse('account_delete',args=(self.uuid,))
